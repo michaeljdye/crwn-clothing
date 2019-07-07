@@ -1,13 +1,16 @@
 import React from 'react';
 import './menu-item.sass';
+import { withRouter } from 'react-router-dom';
 
-const MenuItem = ({ title, image, size }) => {
-  console.log(image);
+const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => {
   return (
-    <div className={`${size} menu-item`}>
+    <div
+      className={`${size} menu-item`}
+      onClick={() => history.push(match.url + linkUrl)}
+    >
       <div
         className="background-image"
-        style={{ backgroundImage: `url(${image})` }}
+        style={{ backgroundImage: `url(${imageUrl})` }}
       />
       <div className="content">
         <h1 className="title">{title.toUpperCase()}</h1>
@@ -17,4 +20,4 @@ const MenuItem = ({ title, image, size }) => {
   );
 };
 
-export default MenuItem;
+export default withRouter(MenuItem); // Pass history, match & location prop to MenuItems
