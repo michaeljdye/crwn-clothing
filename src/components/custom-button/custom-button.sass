@@ -1,4 +1,6 @@
 .custom-button
+  display: flex
+  justify-content: center
   min-width: 165px
   width: auto
   height: 50px
@@ -27,3 +29,14 @@
       background: #357ae8
       border: none
       color: #fff
+
+  &.inverted
+    background-color: white
+    color: black
+    border: 1px solid black
+
+    &:hover
+      background-color: black
+      color: white
+      border: none
+
